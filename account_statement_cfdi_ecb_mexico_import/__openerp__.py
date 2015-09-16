@@ -32,7 +32,7 @@
     'summary': 'XML CFDI Mexico with ECB component statement import',
     "license" : "AGPL-3",
     'description':"""
-This Module enable the import of bank statement in CFDI using the ECB complement.
+This Module enable the import of bank statement in Mexican CFDI using the ECB complement.
 =================================================================================
 Contribuitors
 * Jose Arcangel Salazar Delgado (arcangel.salazar@mindwork.com.mx)

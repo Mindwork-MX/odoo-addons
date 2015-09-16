@@ -56,12 +56,12 @@ class CFDIParser(BankStatementImportParser):
         nms = {'ecb': 'http://factura.ecodex.com.mx:4044/Banorte/ecb', 'tfd':'http://www.sat.gob.mx/TimbreFiscalDigital'}
         
         temp = root.xpath(".//ecb:EstadoDeCuentaBancario", namespaces=nms)
-        
-        self.statement_name = temp[0].attrib['periodo']
+        if temp is not None:
+            self.statement_name = temp[0].attrib['periodo']
         
         temp = root.xpath(".//tfd:TimbreFiscalDigital", namespaces=nms)
-        
-        self.statement_date =datetime.strptime(temp[0].attrib['FechaTimbrado'], TD_DATE_FORMAT,).date()
+        if temp is not None:
+            self.statement_date =datetime.strptime(temp[0].attrib['FechaTimbrado'], TD_DATE_FORMAT,).date()
         
         temp = root.xpath(".//ecb:MovimientoECB", namespaces=nms)
         for child in temp:
